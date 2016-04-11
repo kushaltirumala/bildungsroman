@@ -36,8 +36,13 @@ function getCards(link) {
    			for(var i = 0;i  < count; i++){
    				cards.push(data.terms[i]);
    			}
+   			if($("#card").length!=0){
+   				$("#card").remove();
+   			}
+   			$(document.body).append('<div class="hover panel" id="card"><div class="front card">' + cards[0].term + '</div><div class="back card">' + cards[0].definition + '</div></div>');
+   				index++;
    			//console.log(JSON.stringify(cards));
-   			loadTerms(cards);
+   			//loadTerms(cards);
    		}, 
    		error:function(){
    			alert('error');
@@ -52,7 +57,12 @@ function loadNextTerm() {
               });
 	index++;
 	if(index >= cards.length) {
-		$(document.body).append('<h1 style="text-align:center; color:white;>Load another set, this one is finished</h1>');
+		while($('#card').length > 0 ) {
+			$("#card").remove();
+		}
+		console.log("OVER CARD LIMIT");
+		if($("#redo").length == 0)
+			$(document.body).append('<h1 id="redo" style="text-align:center; color:white;">Load another set, this one is finished</h1>');
 	} else {
 	var front = cards[index].term;
 	var back = cards[index].definition;
