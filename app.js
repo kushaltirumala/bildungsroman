@@ -16,11 +16,8 @@ function cssTransform (name, degree) {
 }
 
 function getCards(link) {
-	//alert(link);
-	var setId = "75030162";;
 	link = link.substring(8,link.length-1);
 	var temp = link.split("/");
-
 	var url = "https://api.quizlet.com/2.0/sets/" + temp[1] + "?client_id=4msU8P4c2B&whitespace=1";
 	$.ajax({
 		url:url,
@@ -29,7 +26,6 @@ function getCards(link) {
    		},
    		dataType:'jsonp',
    		success:function(data) {
-   			//console.log(JSON.stringify(data));
    			var count = data.term_count;
    			for(var i = 0;i  < count; i++){
    				cards.push(data.terms[i]);
@@ -37,10 +33,9 @@ function getCards(link) {
    			if($("#card").length!=0){
    				$("#card").remove();
    			}
-   			$(document.body).append('<div class="hover panel" id="card"><div class="front part">' + cards[0].term + '</div><div class="back part">' + cards[0].definition + '</div></div>');
+   			$(document.body).append('<div class="hover panel" id="card"><div class="front part">' + 
+   				cards[0].term + '</div><div class="back part">' + cards[0].definition + '</div></div>');
    				index++;
-   			//console.log(JSON.stringify(cards));
-   			//loadTerms(cards);
    		}, 
    		error:function(){
    			alert('error');
@@ -65,7 +60,8 @@ function loadNextTerm() {
 	var front = cards[index].term;
 	var back = cards[index].definition;
 	console.log(front + " " + back + " " + index);
-	$(document.body).append('<div class="hover panel" id="card"><div class="front card">' + front + '</div><div class="back card">' + back + '</div></div>');
+	$(document.body).append('<div class="panel" id="card"><div class="front part">' + 
+		front + '</div><div class="back part">' + back + '</div></div>');
 }
 }
 
