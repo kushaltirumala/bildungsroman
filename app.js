@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(function(){
 var state = 1;
 var cards=[];
 var index = 0;
@@ -6,13 +6,11 @@ $('#myButton').click(function() {
       getCards($('#uniqueID').val())
  });
 
-function transformCSS (className, degree) {
+function cssTransform (name, degree) {
 	var style = {
-		"-webkit-transform": "rotateY("+degree+"deg)",
-		"-moz-transform": "rotateY("+degree+"deg)",
 		"transform": "rotateY("+degree+"deg)"
 	}
-	$(className).css(style);
+	$(name).css(style);
 
 	return style;
 }
@@ -39,7 +37,7 @@ function getCards(link) {
    			if($("#card").length!=0){
    				$("#card").remove();
    			}
-   			$(document.body).append('<div class="hover panel" id="card"><div class="front card">' + cards[0].term + '</div><div class="back card">' + cards[0].definition + '</div></div>');
+   			$(document.body).append('<div class="hover panel" id="card"><div class="front part">' + cards[0].term + '</div><div class="back part">' + cards[0].definition + '</div></div>');
    				index++;
    			//console.log(JSON.stringify(cards));
    			//loadTerms(cards);
@@ -75,15 +73,14 @@ function cardFlip(hasHand, handType, rollRadian) {
 	var degree = rollRadian * (180 / Math.PI);
 
 	if(hasHand) {
-	    transformCSS(".front", 0-degree);			
-		if(handType === "left")						
-			transformCSS(".back", -degree-180);		
+	    cssTransform(".front", 0-degree);			
+		if(cssTransform === "left")						
+			cssTransform(".back", -degree-180);		
 		else 										
-			transformCSS(".back", -180-degree);		
-	}
-	else {
-		transformCSS(".front", 0);
-		transformCSS(".back", -180);
+			cssTransform(".back", -180-degree);		
+	} else {
+		cssTransform(".front", 0);
+		cssTransform(".back", -180);
 	}
 }
 
