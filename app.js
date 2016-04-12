@@ -1,3 +1,4 @@
+
 $(function(){
 var state = 1;
 var cards=[];
@@ -64,7 +65,7 @@ function loadNextTerm() {
 		front + '</div><div class="back part">' + back + '</div></div>');
 }
 }
-
+//crds to https://github.com/supernancychen/hand-card-flip for this
 function cardFlip(hasHand, handType, rollRadian) {
 	var degree = rollRadian * (180 / Math.PI);
 
