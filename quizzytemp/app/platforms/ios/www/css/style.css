@@ -1,0 +1,21 @@
+body {
+	font-family: 'Raleway', sans-serif;
+	text-align: center;
+}
+
+.padding h2 {
+	font-family: 'Raleway', sans-serif;
+}
+
+.introslide {
+	height: 100%;
+	background: #834d9b; 
+	color:white;
+	font-weight: 300;
+	background: linear-gradient(to bottom, #886aea, #A891F3 ); 
+	font-family: 'Raleway', sans-serif;
+}
+
+.introslide p {
+	padding:30px;
+}
