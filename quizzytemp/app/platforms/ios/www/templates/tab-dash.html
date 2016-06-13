@@ -1,0 +1,12 @@
+<ion-view view-title="Take a picture">
+  <ion-content class="padding">
+      <h2>Welcome to Quizzy<span ng-show="username">,</span><span ng-hide="username"> You're not logged in!</span> {{username}}</h2>
+
+    <button class="button button-outline button-dark icon ion-ios-camera-outline" style="width:100%;" ng-click="takePhoto()">
+        Take/Upload Photo
+      </button>
+ <!--   <img id="theimage" src="../img/practiceimage.png"> !-->
+      <canvas height="300" width="400" id="canvas"></canvas>
+      <button class="button block" ng-click="analyze()">click me to get the text </button>
+  </ion-content>
+</ion-view>
